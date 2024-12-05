@@ -33,11 +33,11 @@ def get_weather(request):
                 'wind_speed': data['wind']['speed'],
             }
 
-            return render(request, 'weather/index.html', weather_data)
+            return render(request, 'weather_app/index.html', weather_data)
         else:
             error_message = "City not found or API call failed. Please try again."
-            return render(request, 'weather/index.html', {'error_message': error_message})
+            return render(request, 'weather_app/index.html', {'error_message': error_message})
 
     except requests.exceptions.RequestException as e:
         error_message = f"Error fetching weather data: {str(e)}"
-        return render(request, 'weather/index.html', {'error_message': error_message})
+        return render(request, 'weather_app/index.html', {'error_message': error_message})
